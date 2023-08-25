@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <ul>
+        {% for search in searches %}
+        <li>
+            <strong>{{ search.keyword }}</strong> - {{ search.search_time }}
+            <ul>
+                {% for article in search.article_set.all %}
+                <li><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
